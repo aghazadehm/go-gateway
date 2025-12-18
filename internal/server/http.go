@@ -4,13 +4,13 @@ import (
 	"log"
 	"net/http"
 
-	"go-gateway/internal/middleware"
-	"go-gateway/internal/proxy"
+	"example.com/go-gateway/internal/middleware"
+	"example.com/go-gateway/internal/proxy"
 )
 
 func Start() {
 	mux := http.NewServerMux()
-	
+
 	handler := middleware.Chain(
 		proxy.ReverseProxy(),
 		middleware.Logging,

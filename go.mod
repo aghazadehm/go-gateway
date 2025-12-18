@@ -1,3 +1,3 @@
-module github.com/aghazadehm/go-gateway
+module example.com/go-gateway
 
 go 1.21.4
