@@ -9,8 +9,9 @@ import (
 )
 
 func Start() {
-	mux := http.NewServerMux()
+	mux := http.NewServeMux()
 
+		// Core pipeline
 	handler := middleware.Chain(
 		proxy.ReverseProxy(),
 		middleware.Logging,
@@ -20,5 +21,5 @@ func Start() {
 	mux.Handle("/api", handler)
 
 	log.Println("Gateway running on :8080")
-	log.Fatal(http.ListenAndServer(":8080", mux))
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }

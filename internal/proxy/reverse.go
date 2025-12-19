@@ -9,9 +9,5 @@ import (
 func ReverseProxy() http.Handler {
 	target, _ := url.Parse("http://localhost:9000")
 
-	proxy := httputil.NewSingleHostReverseProxy(target)
-
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		proxy.ServerHTTP(w, r)
-	})
+	return httputil.NewSingleHostReverseProxy(target)
 }
